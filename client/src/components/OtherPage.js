@@ -1,11 +1,4 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default () => {
-	return (
-		<div>
-			In some other page!
-			<Link to="/">Home</Link>
-		</div>
-	)
-}
+export default () => <div>In some other page!</div>

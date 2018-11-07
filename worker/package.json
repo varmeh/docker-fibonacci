@@ -1,0 +1,22 @@
+{
+	"name": "worker",
+	"version": "1.0.0",
+	"description": "Calculate fibonacci value at given index",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon"
+	},
+	"keywords": [
+		"worker",
+		"fibonacci"
+	],
+	"author": "vm",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^1.18.6"
+	},
+	"dependencies": {
+		"redis": "^2.8.0"
+	}
+}

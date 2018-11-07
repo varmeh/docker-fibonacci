@@ -1,0 +1,26 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "Express server which routes request to either Postgresql or Redis",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon",
+		"start": "node index.js"
+	},
+	"keywords": [
+		"server",
+		"node",
+		"express"
+	],
+	"author": "vm",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.16.4",
+		"pg": "^7.6.0",
+		"redis": "^2.8.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.6"
+	}
+}

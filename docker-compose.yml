@@ -40,3 +40,6 @@ services:
         volumes:
             - /worker/node_modules
             - ./worker:/worker
+        environment:
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379

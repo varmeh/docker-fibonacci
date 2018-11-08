@@ -11,7 +11,7 @@ module.exports = (app, pgClient, redisClient, redisPublisher) => {
 		res.send(values.rows)
 	})
 
-	app.get('values/current', async (_, res) => {
+	app.get('/values/current', async (_, res) => {
 		redisClient.hgetall('values', (err, values) => {
 			res.send(values)
 		})
@@ -20,7 +20,7 @@ module.exports = (app, pgClient, redisClient, redisPublisher) => {
 	app.post('/values', async (req, res) => {
 		const { index } = req.body
 
-		if (parseInt(index) > 40) {
+		if (parseInt(index) > 140) {
 			return res.status(422).send('Index too high')
 		}
 

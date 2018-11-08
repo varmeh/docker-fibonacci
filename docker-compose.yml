@@ -4,9 +4,9 @@ services:
         image: 'postgres:latest'
     redis:
         image: 'redis:latest'
-    server:
+    api:
         build:
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./server
         volumes:
             - /server/node_modules
@@ -21,14 +21,14 @@ services:
             - PGPASSWORD=postgres_password
     client:
         build:
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./client
         volumes:
             - /app/node_modules
             - ./client:/app
     worker:
         build:
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
             context: ./worker
         volumes:
             - /worker/node_modules

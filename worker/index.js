@@ -10,14 +10,11 @@ const redisClient = redis.createClient({
 const sub = redisClient.duplicate()
 
 function fib(index) {
-	if (index === 0) {
-		return 0
-	}
-	if (index === 1) {
+	if (index === 1 || index === 1) {
 		return 1
 	}
 
-	let previous = 0
+	let previous = 1
 	let current = 1
 
 	for (let i = 2; i <= index; i++) {

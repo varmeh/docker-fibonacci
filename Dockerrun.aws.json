@@ -5,25 +5,29 @@
 			"name": "fibonacci-client",
 			"image": "varxmeh/fibonacci-client",
 			"hostname": "fb_client",
-			"essential": false
+			"essential": false,
+			"memory": 128
 		},
 		{
 			"name": "fibonacci-server",
 			"image": "varxmeh/fibonacci-server",
 			"hostname": "fb_api",
-			"essential": false
+			"essential": false,
+			"memory": 128
 		},
 		{
 			"name": "fibonacci-worker",
 			"image": "varxmeh/fibonacci-worker",
 			"hostname": "fb_worker",
-			"essential": false
+			"essential": false,
+			"memory": 128
 		},
 		{
 			"name": "fibonacci-nginx",
 			"image": "varxmeh/fibonacci-nginx",
 			"hostname": "fb_nginx",
 			"essential": true,
+			"memory": 128,
 			"portMappings": [
 				{
 					"hostPort": 80,

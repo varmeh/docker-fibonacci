@@ -1,0 +1,25 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    # test builds before releasing
+    # As only client has test, client dev image is created
+    - docker build -t varxmeh/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run varxmeh/react-test npm test -- --coverage
+
+after_success:
+    - docker build -t varxmeh/client ./client
+    - docker build -t varxmeh/server ./server
+    - docker build -t varxmeh/worker ./worker
+    - docker build -t varxmeh/nginx ./nginx
+
+    # Login to docker CLI
+    - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
+    # take these images & push to docker hub
+    - docker push varxmeh/client
+    - docker push varxmeh/server
+    - docker push varxmeh/worker
+    - docker push varxmeh/nginx

@@ -25,3 +25,10 @@ spec:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
               subPath: postgres
+          env:
+            # When postgres sees PGPASSWORD environment variable, it uses it's value as its password instead of default password
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword # name of the secret
+                  key: POSTGRES_PASSWORD # name of the key in secret as secret could have many keys

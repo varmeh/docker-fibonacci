@@ -35,7 +35,15 @@ docker-compose up
 
 ## Running application with K8s
 
+Command to run k8s
+
 ```
 cd fibonacci/k8s
 kubectl apply -f . --recursive
+```
+
+You would need postgres password. This needs to be stored in a _k8s secret object_ named _pgpassword_ & password value should be stored in key _POSTGRES_PASSWORD_. Use following command to create this secret:
+
+```
+kubectl create secret generic pgpassword --from-literal POSTGRES_PASSWORD=password
 ```
